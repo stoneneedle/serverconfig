@@ -1,0 +1,7 @@
+# serverconfig.txt - Stoney's Terraria Server
+# Config File
+
+world=/srv/terraria/Worlds/jimWorld.wld
+autocreate=1
+worldname=jimWorld
+worldpath=/srv/terraria/Worlds

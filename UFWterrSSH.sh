@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # UFWterrSSH.sh - Configure firewall for Terraria/SSH
 
 sudo apt install ufw
