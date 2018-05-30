@@ -19,19 +19,21 @@ ls -l
 sudo chown -R root:root /opt/terraria
 sudo chmod +x /opt/terraria/TerrariaServer.bin.x86_64
 
-# Add terraria system user
+# Add terraria system user as sudoer
 sudo useradd -r -m -d /srv/terraria terraria
-
-# Modify terraria user permissions
-# incomplete
+sudo passwd terraria
+sudo usermod -aG sudo terraria
 
 # Copy Terraria serverconfig.txt file to main folder
-#mv ~/serverconfig/serverconfig.txt /opt/terraria/serverconfig.txt
+sudo mv ~/serverconfig/serverconfig.txt /opt/terraria/serverconfig.txt
 
 # Make Terraria worlds folder
 sudo mkdir /opt/teraria/Worlds
 
-# Copy essential Terraria system unit/service config files
-#sudo cp ~/serverconfig/terraria.service 
-#sudo cp ~/serverconfig/terrariad
-#sudo chmod +x /usr/local/bin/terrariad
+# Copy/chmod essential Terraria system unit/service config files
+sudo cp ~/serverconfig/terraria.service /etc/systemd/system/terraria.service
+sudo cp ~/serverconfig/terrariad /usr/local/bin/terrariad
+sudo chmod +x /usr/local/bin/terrariad
+
+# Switch to system user terraria
+su terraria
