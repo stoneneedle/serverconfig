@@ -28,7 +28,7 @@ sudo usermod -aG sudo terraria
 sudo mv ~/serverconfig/serverconfig.txt /opt/terraria/serverconfig.txt
 
 # Make Terraria worlds folder
-sudo mkdir /opt/teraria/Worlds
+sudo mkdir /srv/terraria/Worlds
 
 # Copy/chmod essential Terraria system unit/service config files
 sudo cp ~/serverconfig/terraria.service /etc/systemd/system/terraria.service
