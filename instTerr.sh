@@ -24,16 +24,18 @@ sudo useradd -r -m -d /srv/terraria terraria
 sudo passwd terraria
 sudo usermod -aG sudo terraria
 
-# Copy Terraria serverconfig.txt file to main folder
-sudo mv ~/serverconfig/serverconfig.txt /opt/terraria/serverconfig.txt
-
 # Make Terraria worlds folder
 sudo mkdir /srv/terraria/Worlds
 
-# Copy/chmod essential Terraria system unit/service config files
+# Copy/chmod essential Terraria system unit/service config files,
+# and the serverconfig file
+sudo cp ~/serverconfig/serverconfig.txt /opt/terraria/serverconfig.txt
 sudo cp ~/serverconfig/terraria.service /etc/systemd/system/terraria.service
 sudo cp ~/serverconfig/terrariad /usr/local/bin/terrariad
 sudo chmod +x /usr/local/bin/terrariad
+
+# Set the file owner for copied system/unit/serverconfig files
+sudo chown -R root:root /opt/terraria/serverconfig.txt /etc/systemd/system/terraria.service /usr/local/bin/terrariad
 
 # Switch to system user terraria
 su terraria
