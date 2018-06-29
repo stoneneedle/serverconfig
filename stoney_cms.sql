@@ -1,4 +1,4 @@
-USE cake_cms;
+USE stoney_cms;
 CREATE TABLE users (
 id INT AUTO_INCREMENT PRIMARY KEY,
 email VARCHAR(255) NOT NULL,
@@ -30,3 +30,11 @@ article_id INT NOT NULL,
 tag_id INT NOT NULL,
 PRIMARY KEY (article_id, tag_id),
 FOREIGN KEY tag_key(tag_id) REFERENCES tags(id),
+FOREIGN KEY article_key(article_id) REFERENCES articles(id)
+);
+
+INSERT INTO users (email, password, created, modified)
+VALUES ('cakephp@example.com', 'sekret' NOW(), NOW());
+
+INSERT INTO articles (user_id, title, slug, body, published, created, modified)
+VALUES (1, 'First Post', 'first-post', 'This is the first post.', 1, now(), now());
