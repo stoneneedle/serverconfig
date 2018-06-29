@@ -34,7 +34,7 @@ FOREIGN KEY article_key(article_id) REFERENCES articles(id)
 );
 
 INSERT INTO users (email, password, created, modified)
-VALUES ('cakephp@example.com', 'sekret' NOW(), NOW());
+VALUES ('cakephp@example.com', 'sekret', NOW(), NOW());
 
 INSERT INTO articles (user_id, title, slug, body, published, created, modified)
 VALUES (1, 'First Post', 'first-post', 'This is the first post.', 1, now(), now());
